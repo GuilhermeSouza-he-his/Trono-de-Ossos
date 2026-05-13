@@ -6,6 +6,8 @@ extends CharacterBody2D
 
 @onready var animations = find_child("AnimatedSprite2D")
 
+
+
 var last_direction = "baixo"
 var is_dead = false
 var esta_armado = false 
@@ -13,13 +15,55 @@ var esta_armado = false
 enum State { IDLE, MOVE, ATTACK, PARRY, JUMP, DEAD }
 var current_state = State.IDLE
 
+# --- SISTEMA DE VIDA E ESCUDO ---
+@export var vida_max = 6.0
+@export var escudo_max = 5.0
+
+var vida_atual: float
+var escudo_atual: float
+
+# Arraste as suas ProgressBars da aba Scene para aqui segurando CTRL para pegar o caminho correto
+@onready var barra_vida = get_node("/root/word/CanvasLayer/TextureRect/VBoxContainer/ProgressBarVida")
+@onready var barra_escudo = get_node("/root/word/CanvasLayer/TextureRect/VBoxContainer/ProgressBarEscudo")
+
 func _ready():
-	get_tree().create_timer(10.0).timeout.connect(die)
+	vida_atual = vida_max
+	escudo_atual = escudo_max
+	atualizar_hud()
+	
+func tomar_dano(quantidade: float):
+	if is_dead: return
+
+	# Lógica: O escudo absorve o dano primeiro
+	if escudo_atual > 0:
+		escudo_atual -= quantidade
+		if escudo_atual < 0:
+			# Se o dano foi maior que o escudo, o resto vai para a vida
+			vida_atual += escudo_atual
+			escudo_atual = 0
+	else:
+		vida_atual -= quantidade
+
+	atualizar_hud()
+
+	if vida_atual <= 0:
+		vida_atual = 0
+		die()
+
+func atualizar_hud():
+	if barra_vida:
+		barra_vida.max_value = vida_max
+		barra_vida.value = vida_atual
+	if barra_escudo:
+		barra_escudo.max_value = escudo_max
+		barra_escudo.value = escudo_atual
 
 func _input(_event):
 	if Input.is_action_just_pressed("equip"):
 		esta_armado = !esta_armado
 		print("Espada equipada: ", esta_armado)
+	if Input.is_key_pressed(KEY_K): # Pressionar a tecla K para testar dano
+		tomar_dano(1)
 
 func _physics_process(_delta):
 	if is_dead: return
@@ -119,3 +163,5 @@ func die():
 
 func return_to_idle(_anim = ""):
 	current_state = State.IDLE
+	
+	
