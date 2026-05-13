@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://chg1bgqle5a5u"]
 
 [ext_resource type="PackedScene" uid="uid://eqmvng5tiuit" path="res://scenes/character_body_2d.tscn" id="1_ar2rp"]
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_nnsk1"]
+[ext_resource type="Script" uid="uid://qfjxl1q5lqi0" path="res://scenes/coracao_vida.gd" id="3_k0juu"]
 
 [node name="word" type="Node2D" unique_id=1587673158]
 
@@ -20,10 +19,12 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="ProgressBarVida" type="ProgressBar" parent="CanvasLayer/TextureRect/VBoxContainer" unique_id=934252952]
-custom_minimum_size = Vector2(300, 0)
-layout_mode = 2
-theme_override_styles/fill = SubResource("StyleBoxLine_nnsk1")
-
 [node name="ProgressBarEscudo" type="ProgressBar" parent="CanvasLayer/TextureRect/VBoxContainer" unique_id=7575190]
 layout_mode = 2
+
+[node name="CoracaoVida" type="TextureRect" parent="CanvasLayer/TextureRect/VBoxContainer" unique_id=1470456299]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+script = ExtResource("3_k0juu")
