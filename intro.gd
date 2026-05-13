@@ -16,4 +16,4 @@ func _input(event):
 
 func ir_para_o_jogo():
 	# Ajuste o caminho para a sua cena de jogo real
-	get_tree().change_scene_to_file("res://scenes/world.tscn")
+	get_tree().change_scene_to_file("res://scenes/world_test.tscn")
