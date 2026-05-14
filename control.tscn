@@ -42,19 +42,31 @@ theme_override_constants/separation = 30
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_62e2m")
+<<<<<<< HEAD
+text = "JOGAR"
+=======
 text = "𝖏𝖔𝖌𝖆𝖗"
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 
 [node name="opcoes" type="Button" parent="MainMenu/VBoxContainer" unique_id=2100408375]
 custom_minimum_size = Vector2(180, 50)
 layout_mode = 2
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_62e2m")
+<<<<<<< HEAD
+text = "OPÇÕES"
+=======
 text = "𝖔𝖕𝖈̧𝖔̃𝖊𝖘"
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 
 [node name="sair" type="Button" parent="MainMenu/VBoxContainer" unique_id=1261223402]
 custom_minimum_size = Vector2(180, 50)
 layout_mode = 2
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_62e2m")
+<<<<<<< HEAD
+text = "SAIR"
+=======
 text = "𝖘𝖆𝖎𝖗"
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 
 [connection signal="pressed" from="MainMenu/VBoxContainer/jogar" to="MainMenu" method="_on_jogar_pressed"]
 [connection signal="pressed" from="MainMenu/VBoxContainer/opcoes" to="MainMenu" method="_on_opcoes_pressed"]

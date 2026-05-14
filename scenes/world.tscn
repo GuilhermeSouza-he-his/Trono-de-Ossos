@@ -1,12 +1,20 @@
+<<<<<<< HEAD
+[gd_scene format=3 uid="uid://dnp4mf0jl63hs"]
+
+[ext_resource type="PackedScene" uid="uid://eqmvng5tiuit" path="res://scenes/player.tscn" id="1_ar2rp"]
+=======
 [gd_scene format=3 uid="uid://chg1bgqle5a5u"]
 
 [ext_resource type="PackedScene" uid="uid://eqmvng5tiuit" path="res://scenes/character_body_2d.tscn" id="1_ar2rp"]
 [ext_resource type="Script" uid="uid://qfjxl1q5lqi0" path="res://scenes/coracao_vida.gd" id="3_k0juu"]
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 
 [node name="word" type="Node2D" unique_id=1587673158]
 
 [node name="CharacterBody2D" parent="." unique_id=1508591572 instance=ExtResource("1_ar2rp")]
 position = Vector2(551, 302)
+<<<<<<< HEAD
+=======
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1494984537]
 
@@ -28,3 +36,4 @@ layout_mode = 2
 expand_mode = 1
 stretch_mode = 5
 script = ExtResource("3_k0juu")
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620

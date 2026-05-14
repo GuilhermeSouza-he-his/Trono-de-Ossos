@@ -4,10 +4,13 @@ extends EditorImportPlugin
 const LDTK_LATEST_VERSION = "1.5.3"
 
 enum Presets {DEFAULT}
+<<<<<<< HEAD
+=======
 enum LevelSaveExtensions {
 	SCN,
 	TSCN
 }
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 
 const Util = preload("src/util/util.gd")
 const World = preload("src/world.gd")
@@ -37,7 +40,11 @@ func _get_recognized_extensions():
 	return ["ldtk"]
 
 func _get_save_extension():
+<<<<<<< HEAD
+	return "scn"
+=======
 	return LevelSaveExtensions.keys()[Util.options.level_save_extension].to_lower()
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 
 func _get_preset_count():
 	return Presets.size()
@@ -76,6 +83,8 @@ func _get_import_options(path, index):
 			"name": "pack_levels",
 			"default_value": true,
 		},
+<<<<<<< HEAD
+=======
 		{
 			# Define LDTKLevels save extension.
 			"name": "level_save_extension",
@@ -83,6 +92,7 @@ func _get_import_options(path, index):
 			"property_hint": PROPERTY_HINT_ENUM,
 			"hint_string": "scn,tscn",
 		},
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 		# --- Layers --- #
 		{"name": "Layer", "default_value":"", "usage": PROPERTY_USAGE_GROUP},
 		{
@@ -109,6 +119,8 @@ func _get_import_options(path, index):
 			"property_hint": PROPERTY_HINT_ENUM,
 			"hint_string": "CompressedTexture2D,CanvasTexture",
 		},
+<<<<<<< HEAD
+=======
 		{
 			# Define Godot tileset save extension.
 			"name": "tileset_save_extension",
@@ -116,6 +128,7 @@ func _get_import_options(path, index):
 			"property_hint": PROPERTY_HINT_ENUM,
 			"hint_string": "res,tres",
 		},
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 		# --- Entities --- #
 		{"name": "Entity", "default_value":"", "usage": PROPERTY_USAGE_GROUP},
 		{
@@ -193,7 +206,10 @@ func _import(
 
 	Util.timer_start(Util.DebugTime.LOAD)
 	var world_data := Util.parse_file(source_file)
+<<<<<<< HEAD
+=======
 	var external_levels: bool = world_data.externalLevels
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 	Util.timer_finish("File parsed")
 
 	# Check version
@@ -204,7 +220,11 @@ func _import(
 
 	Util.timer_start(Util.DebugTime.GENERAL)
 	var definitions := DefinitionUtil.build_definitions(world_data)
+<<<<<<< HEAD
+	var tileset_overrides := Tileset.get_tileset_overrides(world_data)
+=======
 	var tileset_overrides := Tileset.get_tileset_overrides(world_data, base_dir, external_levels)
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 	Util.timer_finish("Definitions Created")
 
 	# Build Tilesets and save as Resources
@@ -216,6 +236,10 @@ func _import(
 	Tileset.get_entity_def_tiles(definitions, Util.tilesets)
 
 	# Detect Multi-Worlds
+<<<<<<< HEAD
+	var external_levels: bool = world_data.externalLevels
+=======
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 	var world_iid: String = world_data.iid
 
 	var world: LDTKWorld

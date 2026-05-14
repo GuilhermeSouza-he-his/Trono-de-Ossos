@@ -48,11 +48,21 @@ static func check_version(version: String, latest_version: String) -> bool:
 	return true
 
 static func recursive_set_owner(node: Node, owner: Node) -> void:
+<<<<<<< HEAD
+	node.set_owner(owner)
+	for child in node.get_children():
+		# Child is NOT an instantiated scene - this would otherwise cause errors
+		if child.scene_file_path == "":
+			recursive_set_owner(child, owner)
+		else:
+			child.set_owner(owner)
+=======
 	if node.owner and node.owner != owner:
 		return
 	node.set_owner(owner)
 	for child in node.get_children():
 		recursive_set_owner(child, owner)
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 
 #region Performance Measurement
 
@@ -172,9 +182,15 @@ static func handle_references() -> void:
 	clean_references()
 	clean_resolvers()
 
+<<<<<<< HEAD
+static func resolve_references() -> void:
+	var count := unresolved_refs.size()
+	if (count == 0 or not options.resolve_entityrefs):
+=======
 static func resolve_references(force: bool = true) -> void:
 	var count := unresolved_refs.size()
 	if not force and (count == 0 or not options.resolve_entityrefs):
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 		if (options.verbose_output): nice_print("item_info", "No references to resolve", 1)
 		return
 	else:

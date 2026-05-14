@@ -64,6 +64,8 @@ static func build_levels(
 	Util.timer_finish("Built %s Levels" % levels.size(), 1)
 	return levels
 
+<<<<<<< HEAD
+=======
 enum BackgroundMode {
 	UNSCALED,
 	COVER_DIRTY,
@@ -141,6 +143,7 @@ static func setup_background_sprite(
 						level_size.y / texture_size.y
 					)
 
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 static func create_level(
 		level_data: Dictionary,
 		position: Vector2i,
@@ -171,6 +174,21 @@ static func create_level(
 		var path := "%s/%s" % [base_directory, level_data.bgRelPath]
 		var sprite := Sprite2D.new()
 		sprite.name = "BG Image"
+<<<<<<< HEAD
+		sprite.centered = false
+		sprite.texture = load(path)
+
+		# Calculate BG Position
+		var bgData: Dictionary = level_data.__bgPos
+		var pos: Array = bgData.topLeftPx
+		var scale: Array = bgData.scale
+		var region: Array = bgData.cropRect
+		sprite.region_enabled = true
+		sprite.position = Vector2i(pos[0], pos[1])
+		sprite.scale = Vector2i(scale[0], scale[1])
+		sprite.region_rect = Rect2i(region[0], region[1], region[2], region[3])
+
+=======
 		sprite.texture = load(path)
 		var texture_size := sprite.texture.get_size()
 		setup_background_sprite(
@@ -180,6 +198,7 @@ static func create_level(
 			texture_size,
 			level_data.__bgPos
 		)
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 		level.add_child(sprite)
 
 	# Create fields

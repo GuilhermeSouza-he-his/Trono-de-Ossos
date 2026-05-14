@@ -14,18 +14,36 @@ enum State { IDLE, MOVE, ATTACK, PARRY, JUMP, DEAD }
 var current_state = State.IDLE
 
 # --- SISTEMA DE VIDA E ESCUDO ---
+<<<<<<< HEAD
+@export var vida_max = 21.0 
+=======
 @export var vida_max = 22.0 
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 @export var escudo_max = 5.0
 
 var vida_atual: float
 var escudo_atual: float
 
+<<<<<<< HEAD
+@onready var barra_vida = get_tree().current_scene.find_child("CoracaoVida", true, false)
+@onready var barra_escudo = get_tree().current_scene.find_child("ProgressBarEscudo", true, false)
+=======
 @onready var barra_vida = get_node("/root/word/CanvasLayer/TextureRect/VBoxContainer/CoracaoVida")
 @onready var barra_escudo = get_node("/root/word/CanvasLayer/TextureRect/VBoxContainer/ProgressBarEscudo")
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 
 func _ready():
 	vida_atual = vida_max
 	escudo_atual = escudo_max
+<<<<<<< HEAD
+	await get_tree().process_frame
+	atualizar_hud()
+	
+func tomar_dano(quantidade: float):
+	if is_dead: return
+	if escudo_atual > 0:
+		escudo_atual -= quantidade
+=======
 	atualizar_hud()
 	
 func tomar_dano(amount: float):
@@ -33,14 +51,20 @@ func tomar_dano(amount: float):
 
 	if escudo_atual > 0:
 		escudo_atual -= amount
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 		if escudo_atual < 0:
 			vida_atual += escudo_atual
 			escudo_atual = 0
 	else:
+<<<<<<< HEAD
+		vida_atual -= quantidade
+	atualizar_hud()
+=======
 		vida_atual -= amount
 
 	atualizar_hud()
 
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 	if vida_atual <= 0:
 		vida_atual = 0
 		die()
@@ -48,7 +72,10 @@ func tomar_dano(amount: float):
 func atualizar_hud():
 	if barra_vida and barra_vida.has_method("atualizar_vida"):
 		barra_vida.atualizar_vida(vida_atual, vida_max)
+<<<<<<< HEAD
+=======
 	
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 	if barra_escudo:
 		barra_escudo.max_value = escudo_max
 		barra_escudo.value = escudo_atual
@@ -56,20 +83,37 @@ func atualizar_hud():
 func _input(_event):
 	if Input.is_action_just_pressed("equip"):
 		esta_armado = !esta_armado
+<<<<<<< HEAD
+	if Input.is_key_pressed(KEY_K): 
+=======
 		print("Espada equipada: ", esta_armado)
 	
 	if Input.is_key_pressed(KEY_K):
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 		tomar_dano(1)
 
 func _physics_process(_delta):
 	if is_dead: return
+<<<<<<< HEAD
+=======
 
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 	match current_state:
 		State.IDLE: idle_state()
 		State.MOVE: move_state()
 		State.ATTACK: attack_state()
 		State.JUMP: jump_state()
 
+<<<<<<< HEAD
+func tocar_animacao(nome_base: String):
+	var prefixo = ""
+	
+	# SOMENTE A ANIMAÇÃO DE ATAQUE (SLASH) USA O PREFIXO DA ESPADA
+	if esta_armado and nome_base == "slash":
+		prefixo = "sword_"
+	# else:
+	#    prefixo = "" # Idle, Walk, Run e Jump usarão as animações padrão
+=======
 # --- FUNÇÃO DE ANIMAÇÃO COM SUPORTE TEMPORÁRIO ---
 func tocar_animacao(nome_base: String):
 	var prefixo = ""
@@ -83,6 +127,7 @@ func tocar_animacao(nome_base: String):
 		# elif nome_base == "idle" or nome_base == "run" or nome_base == "walk":
 		# 	prefixo = "sword_"
 		# ---------------------------------------------------------------------
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 	
 	animations.play(prefixo + nome_base + "_" + last_direction)
 
@@ -91,7 +136,10 @@ func idle_state():
 	if direction != Vector2.ZERO:
 		current_state = State.MOVE
 		return
+<<<<<<< HEAD
+=======
 	
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 	check_actions()
 	velocity = Vector2.ZERO
 	tocar_animacao("idle") 
@@ -102,6 +150,12 @@ func move_state():
 	if direction == Vector2.ZERO:
 		current_state = State.IDLE
 		return
+<<<<<<< HEAD
+	var is_running = Input.is_key_pressed(KEY_SHIFT)
+	velocity = direction * (speed_run if is_running else speed_walk)
+	update_last_direction(direction)
+	tocar_animacao("run" if is_running else "walk")
+=======
 
 	var is_running = Input.is_key_pressed(KEY_SHIFT)
 	velocity = direction * (speed_run if is_running else speed_walk)
@@ -109,6 +163,7 @@ func move_state():
 	update_last_direction(direction)
 	tocar_animacao("run" if is_running else "walk")
 	
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 	check_actions()
 	move_and_slide()
 
@@ -116,7 +171,10 @@ func attack_state():
 	if esta_armado:
 		velocity = Vector2.ZERO
 		tocar_animacao("slash") 
+<<<<<<< HEAD
+=======
 		
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 		if not animations.animation_finished.is_connected(return_to_idle):
 			animations.animation_finished.connect(return_to_idle, CONNECT_ONE_SHOT)
 	else:
@@ -129,10 +187,15 @@ func jump_state():
 		"baixo": jump_vec = Vector2.DOWN
 		"esquerda": jump_vec = Vector2.LEFT
 		"direita": jump_vec = Vector2.RIGHT
+<<<<<<< HEAD
+	velocity = jump_vec * jump_force
+	tocar_animacao("jump")
+=======
 	
 	velocity = jump_vec * jump_force
 	tocar_animacao("jump")
 	
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 	move_and_slide()
 	await get_tree().create_timer(0.4).timeout
 	return_to_idle()
@@ -154,10 +217,14 @@ func die():
 	is_dead = true
 	current_state = State.DEAD
 	velocity = Vector2.ZERO
+<<<<<<< HEAD
+	animations.play("death")
+=======
 	
 	animations.play("death")
 	print("O personagem morreu!")
 
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 	await get_tree().create_timer(8.0).timeout
 	get_tree().reload_current_scene()
 

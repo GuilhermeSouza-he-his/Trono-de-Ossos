@@ -1,11 +1,19 @@
 [gd_scene format=3 uid="uid://cx4myvv72osdt"]
 
 [ext_resource type="Script" uid="uid://doa02ca8pnx5w" path="res://intro.gd" id="1_s2ta7"]
+<<<<<<< HEAD
+[ext_resource type="Texture2D" uid="uid://rktj0yi4x1jy" path="res://ldkt/assets/introimage/INTRO1.jpeg" id="2_ayt76"]
+[ext_resource type="Texture2D" uid="uid://om4gfl67aajq" path="res://ldkt/assets/introimage/INTRO2.jpeg" id="3_7a8ye"]
+[ext_resource type="Texture2D" uid="uid://bbd4h3gweous2" path="res://ldkt/assets/introimage/INTRO3.jpeg" id="4_u2rf6"]
+[ext_resource type="Texture2D" uid="uid://bc4tkybh7imwv" path="res://ldkt/assets/introimage/INTRO4.jpeg" id="5_y6ycx"]
+[ext_resource type="Texture2D" uid="uid://bpoyt0rmot4pd" path="res://ldkt/assets/introimage/INTRO5.jpeg" id="6_dpxxx"]
+=======
 [ext_resource type="Texture2D" uid="uid://rktj0yi4x1jy" path="res://assets/introimage/INTRO1.jpeg" id="2_ayt76"]
 [ext_resource type="Texture2D" uid="uid://om4gfl67aajq" path="res://assets/introimage/INTRO2.jpeg" id="3_7a8ye"]
 [ext_resource type="Texture2D" uid="uid://bbd4h3gweous2" path="res://assets/introimage/INTRO3.jpeg" id="4_u2rf6"]
 [ext_resource type="Texture2D" uid="uid://bc4tkybh7imwv" path="res://assets/introimage/INTRO4.jpeg" id="5_y6ycx"]
 [ext_resource type="Texture2D" uid="uid://bpoyt0rmot4pd" path="res://assets/introimage/INTRO5.jpeg" id="6_dpxxx"]
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ayt76"]
 load_path = "res://.godot/imported/INTRO1.jpeg-78b4fb916a756eaf84e0d1b3e25f7342.ctex"
@@ -110,7 +118,11 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 5, 10, 15, 20.017288),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
+<<<<<<< HEAD
+"values": ["\"Em uma era de paz, as pedras mágicas mantinham o equilíbrio do nosso mundo.\"", "\"Mas criaturas de outro mundo surgiram das sombras com um objetivo terrível...\"", "\"Eles roubaram as pedras sagradas, e a escuridão começou a consumir tudo.\"", "\"Monstros agora vagam pelas ruínas, protegendo os fragmentos do poder antigo.\"", "\"Você é a nossa última esperança. Entre na masmorra e recupere o que foi perdido!\""]
+=======
 "values": ["Texto: \"Em uma era de paz, as pedras mágicas mantinham o equilíbrio do nosso mundo.\"", "Texto: \"Mas criaturas de outro mundo surgiram das sombras com um objetivo terrível...\"", "Texto: \"Eles roubaram as pedras sagradas, e a escuridão começou a consumir tudo.\"", "Texto: \"Monstros agora vagam pelas ruínas, protegendo os fragmentos do poder antigo.\"", "Texto: \"Você é a nossa última esperança. Entre na masmorra e recupere o que foi perdido!\""]
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -166,20 +178,34 @@ color = Color(0, 0, 0, 1)
 [node name="TextureRect" type="TextureRect" parent="." unique_id=126136677]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 0
+<<<<<<< HEAD
+offset_left = -20.0
+offset_top = -7.0
+offset_right = 1388.0
+offset_bottom = 761.0
+=======
 offset_left = 4.0
 offset_top = -4.0
 offset_right = 1412.0
 offset_bottom = 764.0
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 scale = Vector2(0.9, 1)
 texture = ExtResource("2_ayt76")
 
 [node name="Label" type="Label" parent="." unique_id=13533174]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
+<<<<<<< HEAD
+offset_left = 153.0
+offset_top = 447.0
+offset_right = 840.0
+offset_bottom = 470.0
+=======
 offset_left = 362.0
 offset_top = 445.0
 offset_right = 739.0
 offset_bottom = 468.0
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 text = "TESTE 1"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=538922178]
@@ -188,7 +214,11 @@ libraries/ = SubResource("AnimationLibrary_0a7ni")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=346094942]
 
 [node name="Intro1" type="Sprite2D" parent="." unique_id=333807349]
+<<<<<<< HEAD
+position = Vector2(462, 241)
+=======
 position = Vector2(570, 240)
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 scale = Vector2(0.5, 0.5)
 texture = SubResource("CompressedTexture2D_ayt76")
 offset = Vector2(20, -7)
