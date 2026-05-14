@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://chg1bgqle5a5u"]
+
+[ext_resource type="PackedScene" uid="uid://d2jvjytclf2ny" path="res://ldkt/levels/Level_0.scn" id="1_1moov"]
+[ext_resource type="PackedScene" uid="uid://dkukaavt6bbyl" path="res://scenes/enemy.tscn" id="2_63fu1"]
+[ext_resource type="PackedScene" uid="uid://eqmvng5tiuit" path="res://scenes/player.tscn" id="2_puv4i"]
+[ext_resource type="PackedScene" uid="uid://djwch0np12tmo" path="res://scenes/bar_life_shield.tscn" id="3_1moov"]
+
+[node name="word" type="Node2D" unique_id=1587673158]
+
+[node name="Level_0" parent="." unique_id=195081982 instance=ExtResource("1_1moov")]
+
+[node name="enemy" parent="." unique_id=1168742794 instance=ExtResource("2_63fu1")]
+position = Vector2(640, 154)
+
+[node name="player" parent="." unique_id=1508591572 instance=ExtResource("2_puv4i")]
+position = Vector2(77, 52)
+
+[node name="bar_life_shield" parent="." unique_id=93373699 instance=ExtResource("3_1moov")]
