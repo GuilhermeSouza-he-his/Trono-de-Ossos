@@ -2,10 +2,24 @@
 
 const Util = preload("util/util.gd")
 const TileUtil = preload("util/tile-util.gd")
+<<<<<<< HEAD
+=======
+const LevelUtil = preload("util/level-util.gd")
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 const FieldUtil = preload("util/field-util.gd")
 const PostImport = preload("post-import.gd")
 
 enum AtlasTextureType {CompressedTexture2D, CanvasTexture}
+<<<<<<< HEAD
+=======
+enum TilesetSaveExtension {
+	RES,
+	TRES,
+}
+
+static func get_tileset_save_extension() -> String:
+	return TilesetSaveExtension.keys()[Util.options.tileset_save_extension].to_lower()
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 
 static func build_tilesets(
 		definitions: Dictionary,
@@ -100,7 +114,15 @@ static func build_tilesets(
 
 static func get_tileset(tile_size: int,base_dir: String) -> TileSet:
 	var tileset_name := "tileset_%spx" % [str(tile_size)]
+<<<<<<< HEAD
 	var path := base_dir + "tilesets/" + tileset_name + ".res"
+=======
+	var path := "%stilesets/%s.%s" % [
+		base_dir,
+		tileset_name,
+		get_tileset_save_extension()
+	]
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 
 	if not (Util.options.force_tileset_reimport):
 		if ResourceLoader.exists(path):
@@ -293,7 +315,11 @@ static func save_tilesets(tilesets: Dictionary, base_dir: String) -> Dictionary:
 			continue
 
 		var file_name = tileset.resource_name
+<<<<<<< HEAD
 		var file_path = "%s%s.%s" % [save_path, file_name, "res"]
+=======
+		var file_path = "%s%s.%s" % [save_path, file_name, get_tileset_save_extension()]
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 		var err = ResourceSaver.save(tileset, file_path)
 		if err == OK:
 			gen_files[key] = file_path
@@ -313,10 +339,27 @@ static func get_entity_def_tiles(definitions: Dictionary, tilesets: Dictionary) 
 	return definitions
 
 # Collect all layer tileset overrides. Later we'll ensure these sources are included in TileSet resources.
+<<<<<<< HEAD
 static func get_tileset_overrides(world_data: Dictionary) -> Dictionary:
 	var overrides := {}
 	for level in world_data.levels:
 		for layer in level.layerInstances:
+=======
+static func get_tileset_overrides(
+		world_data: Dictionary,
+		base_dir: String,
+		external_levels: bool
+) -> Dictionary:
+	var overrides := {}
+	for level_index in range(world_data.levels.size()):
+		var level_data
+		level_data = world_data.levels[level_index]
+
+		if external_levels:
+			level_data = LevelUtil.get_external_level(level_data, base_dir)
+
+		for layer in level_data.layerInstances:
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 			if layer.overrideTilesetUid == null:
 				continue
 			var gridSize: int = layer.__gridSize

@@ -13,6 +13,7 @@ config_version=5
 config/name="Trono-de-Ossos"
 run/main_scene="uid://xo3wormqexb1"
 config/features=PackedStringArray("4.6", "Forward Plus")
+<<<<<<< HEAD
 
 [display]
 
@@ -28,6 +29,13 @@ enabled=PackedStringArray("res://addons/ldtk-importer/plugin.cfg")
 [global_group]
 
 barra_vida=""
+=======
+config/icon="res://icon.svg"
+
+[editor_plugins]
+
+enabled=PackedStringArray()
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 
 [input]
 
@@ -65,7 +73,11 @@ ui_down={
 }
 attack={
 "deadzone": 0.2,
+<<<<<<< HEAD
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(251, 9),"global_position":Vector2(260, 57),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+=======
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 ]
 }
 equip={
@@ -80,7 +92,11 @@ jump={
 }
 parry={
 "deadzone": 0.2,
+<<<<<<< HEAD
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":75,"physical_keycode":0,"key_label":0,"unicode":107,"location":0,"echo":false,"script":null)
+=======
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":2,"canceled":false,"pressed":false,"double_click":false,"script":null)
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 ]
 }
 

@@ -35,6 +35,12 @@ static func resolve_entity_definitions(entity_defs: Array) -> Dictionary:
 	var resolved_entity_defs := {}
 
 	for entity_def in entity_defs:
+<<<<<<< HEAD
+=======
+		var entity_tile = entity_def.uiTileRect
+		if entity_tile == null:
+			entity_tile = entity_def.tileRect
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 		resolved_entity_defs[entity_def.uid] = {
 			"identifier": entity_def.identifier,
 			"color": Color.from_string(entity_def.color, Color.MAGENTA),
@@ -42,7 +48,11 @@ static func resolve_entity_definitions(entity_defs: Array) -> Dictionary:
 			"hollow": entity_def.hollow,
 			"tags": entity_def.tags,
 			"field_defs": resolve_entity_field_defs(entity_def.fieldDefs),
+<<<<<<< HEAD
 			"tile": entity_def.uiTileRect
+=======
+			"tile": entity_tile
+>>>>>>> 566e3afaee1913f90c2a2904506d1917d80b4620
 		}
 
 	return resolved_entity_defs
